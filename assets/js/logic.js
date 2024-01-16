@@ -8,7 +8,6 @@ var submitBtn = document.querySelector("#submit");
 var startBtn = document.querySelector("#start");
 var initialsEl = document.querySelector("#initials");
 var feedbackEl = document.querySelector("#feedback");
-
 // Quiz state variables:
 // 1- Keeping track of the index of the current question in the questions array(currentQuestionIndex).
 var currentQuestionIndex = 0;
