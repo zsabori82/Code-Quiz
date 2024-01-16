@@ -1,4 +1,4 @@
-// Quiz application, displaying questions, handling user responses and tracking time
+// Quiz application, displaying questions, handling user responses, and tracking time
 
 // Retrieving references to various HTML elements by their IDs using document.querySelector.(DOM elements)
 var questionsEl = document.querySelector("#questions");
@@ -45,7 +45,7 @@ function getQuestion() {
   choicesEl.innerHTML = "";
 
   // Loop over choices
-  currentQuestion.choices.forEach(function(choice, i) {
+  currentQuestion.choices.forEach(function (choice, i) {
     // Create new button for each choice
     var choiceNode = document.createElement("button");
     choiceNode.setAttribute("class", "choice");
@@ -75,15 +75,21 @@ function questionClick() {
     feedbackEl.textContent = "Wrong!";
     feedbackEl.style.color = "red";
     feedbackEl.style.fontSize = "400%";
+
+    // Play incorrect audio
+    playIncorrectAudio();
   } else {
     feedbackEl.textContent = "Correct!";
     feedbackEl.style.color = "green";
     feedbackEl.style.fontSize = "400%";
+
+    // Play correct audio
+    playCorrectAudio();
   }
 
   // Flash right/wrong feedback
   feedbackEl.setAttribute("class", "feedback");
-  setTimeout(function() {
+  setTimeout(function () {
     feedbackEl.setAttribute("class", "feedback hide");
   }, 1000);
 
@@ -146,7 +152,7 @@ function saveHighscore() {
     highscores.push(newScore);
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
-    // Redirect to next page
+    // Redirect to the next page
     window.location.href = "highscores.html";
   }
 }
