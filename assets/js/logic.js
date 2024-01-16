@@ -164,9 +164,14 @@ submitBtn.onclick = saveHighscore;
 // Start quiz
 startBtn.onclick = startQuiz;
 
-initialsEl.onkeyup = checkForEnter;
+// Function to play the audio when the answer is correct
+function playCorrectAudio() {
+  var correctAudio = new Audio("./assets/sfx/correct.wav");
+  correctAudio.play();
+}
 
-// Play sound when quiz starts
-function startQuiz() {
-  document.getElementById("startSound").play(correct.wav);
+// Function to play the audio when the answer is incorrect
+function playIncorrectAudio() {
+  var incorrectAudio = new Audio("./assets/sfx/incorrect.wav");
+  incorrectAudio.play();
 }
