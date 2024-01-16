@@ -147,7 +147,7 @@ function saveHighscore() {
     window.localStorage.setItem("highscores", JSON.stringify(highscores));
 
     // Redirect to next page
-    window.location.href = "score.html";
+    window.location.href = "highscores.html";
   }
 }
 
@@ -165,3 +165,8 @@ submitBtn.onclick = saveHighscore;
 startBtn.onclick = startQuiz;
 
 initialsEl.onkeyup = checkForEnter;
+
+// Play sound when quiz starts
+function startQuiz() {
+  document.getElementById("startSound").play(correct.wav);
+}
